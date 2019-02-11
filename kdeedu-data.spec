@@ -5,18 +5,19 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdeedu-data
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kdeedu-data-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kdeedu-data-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kdeedu-data-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kdeedu-data-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kdeedu-data-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kdeedu-data-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: kdeedu-data-data
-Requires: kdeedu-data-license
+Requires: kdeedu-data-data = %{version}-%{release}
+Requires: kdeedu-data-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : perl
 
 %description
 ********  At the attention of packagers  *********
@@ -39,25 +40,25 @@ license components for the kdeedu-data package.
 
 
 %prep
-%setup -q -n kdeedu-data-18.08.0
+%setup -q -n kdeedu-data-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535196076
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549864800
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535196076
+export SOURCE_DATE_EPOCH=1549864800
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kdeedu-data
-cp COPYING %{buildroot}/usr/share/doc/kdeedu-data/COPYING
+mkdir -p %{buildroot}/usr/share/package-licenses/kdeedu-data
+cp COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/COPYING
 pushd clr-build
 %make_install
 popd
@@ -491,5 +492,5 @@ popd
 /usr/share/icons/hicolor/scalable/actions/resetview.svgz
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kdeedu-data/COPYING
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kdeedu-data/COPYING
