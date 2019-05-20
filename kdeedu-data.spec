@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdeedu-data
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/kdeedu-data-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/kdeedu-data-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/kdeedu-data-18.12.3.tar.xz.sig
-Summary  : Common data for KDE Edu applications
+Version  : 19.04.1
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.1/src/kdeedu-data-19.04.1.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.1/src/kdeedu-data-19.04.1.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.1/src/kdeedu-data-19.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: kdeedu-data-data = %{version}-%{release}
@@ -40,22 +40,24 @@ license components for the kdeedu-data package.
 
 
 %prep
-%setup -q -n kdeedu-data-18.12.3
+%setup -q -n kdeedu-data-19.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555326516
+export SOURCE_DATE_EPOCH=1558334891
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555326516
+export SOURCE_DATE_EPOCH=1558334891
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdeedu-data
 cp COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/COPYING
@@ -72,23 +74,20 @@ popd
 /usr/share/apps/kvtml/bg/easy.kvtml
 /usr/share/apps/kvtml/bg/hard.kvtml
 /usr/share/apps/kvtml/bg/medium.kvtml
-/usr/share/apps/kvtml/ca/animals.kvtml
 /usr/share/apps/kvtml/ca/animals_pri.kvtml
 /usr/share/apps/kvtml/ca/biografies_sec.kvtml
-/usr/share/apps/kvtml/ca/capitals_del_mon_sec.kvtml
+/usr/share/apps/kvtml/ca/capitalsdelmón_sec.kvtml
 /usr/share/apps/kvtml/ca/comarques_sec.kvtml
 /usr/share/apps/kvtml/ca/divises_sec.kvtml
-/usr/share/apps/kvtml/ca/easy.kvtml
 /usr/share/apps/kvtml/ca/espai_pri.kvtml
 /usr/share/apps/kvtml/ca/esports_sec.kvtml
 /usr/share/apps/kvtml/ca/fruites_pri.kvtml
-/usr/share/apps/kvtml/ca/hard.kvtml
-/usr/share/apps/kvtml/ca/informatica_pri.kvtml
 /usr/share/apps/kvtml/ca/invents_sec.kvtml
-/usr/share/apps/kvtml/ca/medium.kvtml
 /usr/share/apps/kvtml/ca/objectes_pri.kvtml
+/usr/share/apps/kvtml/ca/ordinadors_pri.kvtml
 /usr/share/apps/kvtml/ca/professions_pri.kvtml
-/usr/share/apps/kvtml/ca/provincies_sec.kvtml
+/usr/share/apps/kvtml/ca/províncies_sec.kvtml
+/usr/share/apps/kvtml/ca/roba_pri.kvtml
 /usr/share/apps/kvtml/ca/transports_pri.kvtml
 /usr/share/apps/kvtml/ca/verdures_pri.kvtml
 /usr/share/apps/kvtml/ca/vestit_pri.kvtml
