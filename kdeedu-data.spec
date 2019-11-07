@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdeedu-data
-Version  : 19.08.2
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.08.2/src/kdeedu-data-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/kdeedu-data-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/kdeedu-data-19.08.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 19.08.3
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.3/src/kdeedu-data-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/kdeedu-data-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/kdeedu-data-19.08.3.tar.xz.sig
+Summary  : Common data for KDE Edu applications
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: kdeedu-data-data = %{version}-%{release}
@@ -40,16 +40,17 @@ license components for the kdeedu-data package.
 
 
 %prep
-%setup -q -n kdeedu-data-19.08.2
+%setup -q -n kdeedu-data-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570828624
+export SOURCE_DATE_EPOCH=1573165703
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -60,10 +61,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570828624
+export SOURCE_DATE_EPOCH=1573165703
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdeedu-data
-cp %{_builddir}/kdeedu-data-19.08.2/COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kdeedu-data-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
