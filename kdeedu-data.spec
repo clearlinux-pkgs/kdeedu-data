@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kdeedu-data
-Version  : 20.04.2
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kdeedu-data-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kdeedu-data-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kdeedu-data-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kdeedu-data-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kdeedu-data-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kdeedu-data-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -41,15 +41,15 @@ license components for the kdeedu-data package.
 
 
 %prep
-%setup -q -n kdeedu-data-20.04.2
-cd %{_builddir}/kdeedu-data-20.04.2
+%setup -q -n kdeedu-data-20.08.0
+cd %{_builddir}/kdeedu-data-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591905776
+export SOURCE_DATE_EPOCH=1597778992
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -58,14 +58,14 @@ export FCFLAGS="$FFLAGS -fno-lto "
 export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591905776
+export SOURCE_DATE_EPOCH=1597778992
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kdeedu-data
-cp %{_builddir}/kdeedu-data-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/kdeedu-data-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kdeedu-data/4cc77b90af91e615a64ae04893fdffa7939db84c
 pushd clr-build
 %make_install
 popd
@@ -359,6 +359,10 @@ popd
 /usr/share/apps/kvtml/ru/space.kvtml
 /usr/share/apps/kvtml/ru/transportation.kvtml
 /usr/share/apps/kvtml/ru/worldcapitals.kvtml
+/usr/share/apps/kvtml/sk/animals.kvtml
+/usr/share/apps/kvtml/sk/easy.kvtml
+/usr/share/apps/kvtml/sk/hard.kvtml
+/usr/share/apps/kvtml/sk/medium.kvtml
 /usr/share/apps/kvtml/sl/animals.kvtml
 /usr/share/apps/kvtml/sl/clothing.kvtml
 /usr/share/apps/kvtml/sl/computers.kvtml
