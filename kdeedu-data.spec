@@ -6,7 +6,7 @@
 #
 Name     : kdeedu-data
 Version  : 21.08.2
-Release  : 28
+Release  : 29
 URL      : https://download.kde.org/stable/release-service/21.08.2/src/kdeedu-data-21.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.08.2/src/kdeedu-data-21.08.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.08.2/src/kdeedu-data-21.08.2.tar.xz.sig
